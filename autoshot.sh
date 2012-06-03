@@ -24,9 +24,9 @@ doPadding()
 }
 
 ##this will return the date that is most recent
-##the order the dates are put in matters very much, as 
+##the order the dates are put in matters very much, as
 ##the log and vim-cmd date formats differ. this function
-##takes $1 from the log and $2 from vim-cmd, converts them 
+##takes $1 from the log and $2 from vim-cmd, converts them
 ##into the standard comparison format, runs that through sort -rn,
 ##and finally returns the original ($1 or $2, raw from their sources)
 ##as the 'most recent event'
@@ -38,7 +38,7 @@ cmptimes()
 	##so all we had to do was convert string month to int, then rebuild
 	##in the proper format
 	cmp_offtime="`echo $1 | awk '{print $NF}'`-$cmp_offtime_month-`echo $1 | awk '{print $2" "$3}'`"
-	##snapshot dates from vim-cmd are much more of a beating as a 
+	##snapshot dates from vim-cmd are much more of a beating as a
 	##number of different values arent padded, the below rectifies that
 	cmp_shottime_date="`echo $2 | awk '{print $1}' | awk -F '/' '{print $3" "$1" "$2}'`"
 	cmp_shottime_year=`echo $cmp_shottime_date | awk '{print $1}'`
