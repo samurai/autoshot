@@ -6,7 +6,7 @@ MONTH_ENUM="Jan:01 Feb:02 Mar:03 Apr:04 May:05 Jun:06 Jul:07 Aug:08 Sept:09 Oct:
 getMonth()
 {
 ##$1 here is the short-string representation of a month
-	for month in `echo $MONTH_ENUM`; do
+	for month in $MONTH_ENUM; do
 		echo $month | grep $1 | awk -F ':' '{print $2}'
 	done ;
 
